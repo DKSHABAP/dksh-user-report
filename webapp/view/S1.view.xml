@@ -1,0 +1,52 @@
+<mvc:View controllerName="com.dksh.UserReport.controller.S1" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" title="{i18n>title}">
+					<content>
+						<Table items="{oLoggedInUserDetailModel>/users}" id="ResultTable" growing="true" growingThreshold="100">
+							<headerToolbar>
+								<OverflowToolbar>
+									<ToolbarSpacer/>
+									<Button icon="sap-icon://download" type="Transparent" press="onDownload"/>
+								</OverflowToolbar>
+							</headerToolbar>
+							<columns>
+								<Column>
+									<Text text="UserId"></Text>
+								</Column>
+								<Column>
+									<Text text="UserName"></Text>
+								</Column>
+								<Column>
+									<Text text="PhoneNo"/>
+								</Column>
+								<Column>
+									<Text text="Email"></Text>
+								</Column>
+								<Column>
+									<Text text="Created At"></Text>
+								</Column>
+								<Column>
+									<Text text="Country"></Text>
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem>
+									<cells>
+										<Text text="{oLoggedInUserDetailModel>id}"></Text>
+										<Text text="{oLoggedInUserDetailModel>name/givenName} {oLoggedInUserDetailModel>name/familyName}"></Text>
+										<Text text="{oLoggedInUserDetailModel>phoneNumbers/0/value}"></Text>
+										<Text text="{oLoggedInUserDetailModel>emails/0/value}"></Text>
+										<Text text="{oLoggedInUserDetailModel>meta/created}"></Text>
+										<Text text="{oLoggedInUserDetailModel>addresses/0/country}"></Text>
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</content>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>
